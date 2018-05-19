@@ -1,0 +1,49 @@
+.flex-container {
+    display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+  }
+  
+  .flex-container>div {
+   padding-top: 50px;
+    margin: 10px;
+  text-align: left;
+  line-height: 75px;
+  width: 600px;
+  height: 310px;
+  word-wrap: break-word;
+  }
+
+
+  /* radio style */
+
+
+  
+  /* end of radio style */
+
+
+
+
+
+
+
+
+
+  .form-group{
+    margin: 2%;
+}
+
+.user-card{
+    background: linear-gradient(-5deg, #36a0ddc4, #366bdd);
+    margin: 25px auto;
+	  padding: 5%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+    line-height: 1;
+}
+
+
+
+
+
