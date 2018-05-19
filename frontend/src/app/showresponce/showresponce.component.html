@@ -1,7 +1,7 @@
 
 <dir class="welcome">
 
-<ng-template [ngIf]= "sentDataStatus === undefined">
+<ng-template [ngIf]= "sentDataStatus === 2">
     <p style="font-size: 38px; padding: 15px">
      Your request is being processed, please visit this page after a short while
     </p>
@@ -18,7 +18,7 @@
     
   <ng-template [ngIf] = "sentDataStatus === 0">
       <p style="font-size: 38px; padding: 15px">
-       Your request has been denied. You can provide a complaint <a>here</a> 
+       Your request has been denied. You can provide a complaint <a class="styeled btn btn-default" [routerLink]="['/makecomplaint']">Complain</a> 
       </p>
     </ng-template>
       

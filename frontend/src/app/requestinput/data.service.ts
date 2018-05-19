@@ -2,17 +2,19 @@ import { Router, Route } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { RequestData } from './request.model';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { StatusValue } from './data.enum';
 @Injectable()
 
 export class DataService {
 
     private requestDataHere: RequestData;
-    requestSent = new Subject <number>();
+    requestSent = new BehaviorSubject (StatusValue.denied);
 
     constructor (private router: Router) {}
 
     sendData (requestData: RequestData) {
-        this.requestDataHere = {
+             this.requestDataHere = {
             firstname: requestData.firstname,
             lastname: requestData.lastname,
             email: requestData.email,
@@ -25,8 +27,15 @@ export class DataService {
             income: requestData.income,
             ksv: requestData.ksv,
         };
-         this.requestSent.next(2);
+
+        console.log(this.requestDataHere);
+        this.requestSent.next(StatusValue.waiting);
+    
          this.router.navigate(['/showresponce']);
     }
+
+    // check() {
+
+    // }
 }
 

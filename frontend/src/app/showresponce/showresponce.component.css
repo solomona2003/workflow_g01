@@ -3,3 +3,25 @@
     border-radius: 5px;
     margin: 77px;
 }
+
+.styeled {
+    color: #000;
+    background-color: #ffffff;
+    border-color: none;
+    box-shadow: 0px 1px 2px 0px #6d6d6d;
+}
+
+a:hover, a:active, a:focus, a:visited {
+    text-decoration: none;
+  
+}
+
+button:focus {
+    outline: 0;
+}
+
+.btn-default {
+    color: none;
+    background-color: none;
+    border-color: none;
+}
