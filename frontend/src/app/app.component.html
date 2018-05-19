@@ -1,6 +1,14 @@
 <app-header>
 </app-header>
 
+<div class="loading-overlay" *ngIf="loading">
+    <!-- show something fancy here, here with Angular 2 Material's loading bar or circle -->
+    <section class="loadercontainer">
+        <div class="loader"></div>
+    </section>
+   
+</div>
+
 <div class="container ">
   <div class="row">
     <div class="col-md-12">

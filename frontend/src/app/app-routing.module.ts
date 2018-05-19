@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth/auth.guard';
+import { CanActivate } from '@angular/router';
 import { MakecomplaintComponent } from './makecomplaint/makecomplaint.component';
 import { ShowresponceComponent } from './showresponce/showresponce.component';
 import { RequestinputComponent } from './requestinput/requestinput.component';
@@ -9,14 +11,15 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
 
+
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'requestinput', component: RequestinputComponent},
-  {path: 'showresponce', component: ShowresponceComponent},
-  {path: 'makecomplaint', component: MakecomplaintComponent},
+  {path: 'requestinput', component: RequestinputComponent, canActivate: [AuthGuard]},
+  {path: 'showresponce', component: ShowresponceComponent, canActivate: [AuthGuard]},
+  {path: 'makecomplaint', component: MakecomplaintComponent, canActivate: [AuthGuard]},
 
 ];
 
@@ -27,6 +30,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
   ],
   exports: [RouterModule],
-  declarations: []
+  declarations: [],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

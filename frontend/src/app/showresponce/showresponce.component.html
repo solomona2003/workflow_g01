@@ -1,3 +1,26 @@
-<p>
-  showresponce works!
-</p>
+
+<dir class="welcome">
+
+<ng-template [ngIf]= "sentDataStatus === undefined">
+    <p style="font-size: 38px; padding: 15px">
+     Your request is being processed, please visit this page after a short while
+    </p>
+  </ng-template>
+    
+
+  <ng-template [ngIf] = "sentDataStatus === 1">
+      <p style="font-size: 38px; padding: 15px">
+       Congratulations your request has been approved. Your refund is processed. Bank transfers can take up to two working days. 
+      </p>
+    </ng-template>
+
+
+    
+  <ng-template [ngIf] = "sentDataStatus === 0">
+      <p style="font-size: 38px; padding: 15px">
+       Your request has been denied. You can provide a complaint <a>here</a> 
+      </p>
+    </ng-template>
+      
+    </dir>
+    
