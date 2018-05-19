@@ -29,7 +29,7 @@ export class DataService {
         };
 
         console.log(this.requestDataHere);
-        this.requestSent.next(StatusValue.waiting);
+        this.requestSent.next(StatusValue.denied);
     
          this.router.navigate(['/showresponce']);
     }
