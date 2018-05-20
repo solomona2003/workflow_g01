@@ -1,3 +1,28 @@
 input.ng-invalid.ng-touched{
     box-shadow: 1px 1px 9px 2px #ca4343;
 }
+
+.fa {
+    margin-left: -12px;
+    margin-right: 8px;
+}
+
+.buttonload {
+    /* background-color: #4CAF50;  */
+    /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    width: 100px;
+    /* padding: 12px 24px; */
+     /* Some padding */
+    font-size: 16px; /* Set a font-size */
+}
+
+a:hover, a:active, a:focus, a:visited {
+    text-decoration: none;
+  
+}
+
+button:focus {
+    outline: 0;
+}

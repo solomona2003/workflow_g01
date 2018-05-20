@@ -1,5 +1,7 @@
+import { UIService } from './../../shared/ui-features.service';
+import { Subscription } from 'rxjs';
 import { AuthService } from './../auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,11 +9,28 @@ import { NgForm } from '@angular/forms';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, OnDestroy {
+  killErrorMessageSubscription: Subscription;
+  errorMessage = null;
 
-  constructor(private authService: AuthService) { }
+  private isLoading = false;
+  private killLoadingSubscription: Subscription;
+  constructor(private authService: AuthService, private uIService: UIService) { }
 
   ngOnInit() {
+    this.killErrorMessageSubscription = this.authService.errorMessage.subscribe(Response => {
+      this.errorMessage = Response;
+    });
+
+    this.killLoadingSubscription = this.uIService.loadingStateChanged.subscribe(loading => {
+      this.isLoading = loading;
+    });
+
+  }
+
+  ngOnDestroy() {
+    this.killLoadingSubscription.unsubscribe();
+    this.killErrorMessageSubscription.unsubscribe();
   }
 
   onSignUp(form: NgForm) {

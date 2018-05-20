@@ -7,14 +7,21 @@
             <input type="text" ngModel class="form-control" name="email" email required #email="ngModel">
             <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
           </div>
-          <div class="form-group">
+          <div class="form-group" >
             <label for="password" >Password</label>
-            <input type="password" ngModel class="form-control" name="password" minlength="6" password required #password="ngModel">
+            <input type="password"  ngModel class="form-control" name="password" minlength="6" password required #password="ngModel">
             <span class="help-block" *ngIf="!password.valid && password.touched">Please enter at least 6 characters</span>
 
           </div>
           
-          <button type="submit" class="btn btn-primary" [disabled]= "!f.valid">Login</button>
+          <button  type="submit" class="buttonload btn btn-primary" [disabled]= "!f.valid" >
+               
+             <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>Login
+
+            </button>
+
+            <p> {{errorMessage}} </p>
+            
 
           </form>
 

@@ -25,7 +25,7 @@
 
 
         <ng-template [ngIf]="isAuth">
-          <li><a style="cursor: pointer" [routerLink]="['login']" (click)="authService.logOut()">
+          <li><a style="cursor: pointer" [routerLink]="['login']" (click)="authService.logout()">
           <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ng-template>
 

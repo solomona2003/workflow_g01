@@ -14,8 +14,12 @@
 
           </div>
           
-          <button type="submit" class="btn btn-primary" [disabled]= "!f.valid">Register</button>
+          <button type="submit" style="width: 100px;"  class="btn btn-primary" [disabled]= "!f.valid">
+            <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>Register
+          </button>
           
+
+          <p> {{errorMessage}} </p>
           </form>
 
   </div>

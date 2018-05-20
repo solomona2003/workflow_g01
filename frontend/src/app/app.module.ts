@@ -1,3 +1,4 @@
+import { UIService } from './shared/ui-features.service';
 import { ComplaintService } from './makecomplaint/complaint.service';
 import { DataService } from './requestinput/data.service';
 import { AuthService } from './auth/auth.service';
@@ -45,7 +46,7 @@ import { environment } from '../environments/environment.prod';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService, DataService, ComplaintService],
+  providers: [AuthService, DataService, ComplaintService, UIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
