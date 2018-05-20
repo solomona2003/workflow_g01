@@ -1,3 +1,4 @@
+import { AvailableResponse } from './response.model';
 import { Router, Route } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { RequestData } from './request.model';
@@ -10,6 +11,8 @@ export class DataService {
 
     private requestDataHere: RequestData;
     requestSentStatus = new BehaviorSubject (StatusValue.denied);
+
+    availableResponse: AvailableResponse = {status: StatusValue.denied}
 
     constructor (private router: Router) {}
 
@@ -28,7 +31,7 @@ export class DataService {
             ksv: requestData.ksv,
         };
 
-         this.requestSentStatus.next(StatusValue.denied);
+         this.requestSentStatus.next(this.availableResponse.status);
          this.router.navigate(['/showresponce']);
     }
 

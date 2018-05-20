@@ -18,6 +18,7 @@ export class RequestinputComponent implements OnInit {
 
 
   onSend(form: NgForm) {
+    if (form.valid) {
     this.formData = new FormData();
     this.formData.append('ksv',
                     this.avatar.nativeElement.files[0],
@@ -39,5 +40,5 @@ export class RequestinputComponent implements OnInit {
     });
 
       }
-
+    }
 }
