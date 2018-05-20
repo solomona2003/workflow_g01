@@ -1,160 +1,164 @@
-<form  (ngSubmit)="onSend(f)"  #f="ngForm">
+<form (ngSubmit)="onSend(f)" #f="ngForm">
   <div class="container">
-  
-      <div class="row">
-        <div class="col-md-6">
-            <legend>User Personal Data</legend>
-  
-            <div class="form-group">
-              <label class="col-md-4 control-label">First Name</label>
-              <div class="col-md-8 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input name="firstname" placeholder="First Name" class="form-control" type="text" required>
-                </div>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <label class="col-md-4 control-label">Last Name</label>
-              <div class="col-md-8 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input name="lastname" placeholder="Last Name" class="form-control" type="text" required>
-                </div>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <label class="col-md-4 control-label">Email</label>
-              <div class="col-md-8 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                  <input name="email" placeholder="someone@abc.com" class="form-control" type="text" email required>
-                </div>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <label class="col-md-4 control-label">Address</label>
-              <div class="col-md-8 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                  <input name="street" placeholder="street" class="form-control" type="text" required>
-                </div>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <label class="col-md-4 control-label">City</label>
-              <div class="col-md-8 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                  <input name="city" placeholder="city" class="form-control" type="text" required>
-                </div>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <label class="col-md-4 control-label">State</label>
-              <div class="col-md-8 selectContainer">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                  <select name="state" class="form-control selectpicker" required>
-                    <option value=" " >Please select your state</option>
-                    <option>Burgenland</option>
-                    <option>Vorarlberg</option>
-                    <option >Salzburg</option>
-                    <option >Carinthia</option>
-                    <option >Tyrol </option>
-                    <option >Styria </option>
-                    <option >Upper Austria</option>
-                    <option >Lower Austria</option>
-                    <option >Vienna</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <label class="col-md-4 control-label">Post Code</label>
-              <div class="col-md-8 inputGroupContainer">
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                  <input name="postcode" placeholder="Zip Code" class="form-control" type="text" required>
-                </div>
-              </div>
-            </div>
-      
 
-        </div>
-  
-     
-    <div class="col-md-6">
-   
-      <legend>User Financial Data</legend>
+    <div class="row">
+      <div class="col-md-6">
+        <legend>User Personal Data</legend>
 
-
-    <div class="form-group">
-        <label class="col-md-4 control-label">IBAN</label>
-        <div class="col-md-8 inputGroupContainer">
-          <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-eur"></i></span>
-            <input name="iban" placeholder="AT34 2011 1823 4213 4000" class="form-control" type="text" required>
+        <div class="form-group">
+          <label class="col-md-4 control-label">First Name</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-user"></i>
+              </span>
+              <input name="firstname" placeholder="First Name" class="form-control" type="text" required>
+            </div>
           </div>
         </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Last Name</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-user"></i>
+              </span>
+              <input name="lastname" placeholder="Last Name" class="form-control" type="text" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Email</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-envelope"></i>
+              </span>
+              <input name="email" placeholder="someone@abc.com" class="form-control" type="text" email required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Address</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-home"></i>
+              </span>
+              <input name="street" placeholder="street" class="form-control" type="text" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">City</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-home"></i>
+              </span>
+              <input name="city" placeholder="city" class="form-control" type="text" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">State</label>
+          <div class="col-md-8 selectContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-list"></i>
+              </span>
+              <select name="state" class="form-control selectpicker" required>
+                <option value=" ">Please select your state</option>
+                <option>Burgenland</option>
+                <option>Vorarlberg</option>
+                <option>Salzburg</option>
+                <option>Carinthia</option>
+                <option>Tyrol </option>
+                <option>Styria </option>
+                <option>Upper Austria</option>
+                <option>Lower Austria</option>
+                <option>Vienna</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Post Code</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-home"></i>
+              </span>
+              <input name="postcode" placeholder="1100" class="form-control" type="number" required maxlength="4">
+            </div>
+          </div>
+        </div>
+
+
       </div>
 
-      <div class="form-group">
+
+      <div class="col-md-6">
+
+        <legend>User Financial Data</legend>
+
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">IBAN</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-eur"></i>
+              </span>
+              <input name="iban" placeholder="AT34 2011 1823 4213 4000" class="form-control" type="text" required minlength="20">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
           <label class="col-md-4 control-label">Request Amount</label>
           <div class="col-md-8 inputGroupContainer">
             <div class="input-group">
-              <span class="input-group-addon"><i class="glyphicon glyphicon-eur"></i></span>
-              <input name="requestamount" placeholder="200" class="form-control" type="text" required>
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-eur"></i>
+              </span>
+              <input name="requestamount" placeholder="200" class="form-control" type="number" required>
             </div>
           </div>
         </div>
 
 
         <div class="form-group">
-            <label class="col-md-4 control-label">Income</label>
-            <div class="col-md-8 inputGroupContainer">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-eur"></i></span>
-                <input name="income" placeholder="200" class="form-control" type="text" required>
-              </div>
+          <label class="col-md-4 control-label">Income</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-eur"></i>
+              </span>
+              <input name="income" placeholder="2000" class="form-control" type="number" required>
             </div>
           </div>
-
-
-    <!-- <label  class="col-md-4 control-label">Upload Either of the files?</label>
-    <div class="col-md-4">
-        <div class="radio">
-            <label>
-                <input type="radio" name="passorid" value="yes"  checked/> Passport
-            </label>
         </div>
-        <div class="radio">
-            <label>
-                <input type="radio" name="passorid" value="no" /> ID
-            </label>
+
+        <span class="control-fileupload">
+          <label for="file1" class="text-left" style="padding-top: 20px;">Upload your kredit score sheet (eg. frm KSV)</label>
+          <input type="file" id="file1" name="ksv" accept=".png, .jpg, .jpeg, .pdf" required #ksv>
+        </span>
+
+
+        <div class="form-group" style="padding-top: 5%">
+          <button id="add-user-btn" class="btn btn-lg btn-primary btn-block new-post-button" [disabled]="!f.valid">Submit</button>
         </div>
-    </div> -->
 
-
-<span class="control-fileupload">
-<label for="file1" class="text-left" style="padding-top: 20px;">Upload your kredit score sheet (eg. frm KSV)</label>
-<input type="file" id="file1" name = "ksv" accept=".png, .jpg, .jpeg, .pdf" required #ksv>
-</span>
-
-     
-<div class="form-group" style="padding-top: 5%">
-    <button id="add-user-btn"   class="btn btn-lg btn-primary btn-block new-post-button">Submit</button>
-  </div>
-  
       </div>
-     
-  </div>
-</div>
 
-  </form>
+    </div>
+  </div>
+
+</form>
