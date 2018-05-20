@@ -4,3 +4,5 @@ body{
     font-family: 'Roboto', sans-serif;
     color: rgb(121, 121, 121);
 }
+
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */

@@ -1,4 +1,4 @@
-// import { ComplaintService } from './makecomplaint/complaint.service';
+import { ComplaintService } from './makecomplaint/complaint.service';
 import { DataService } from './requestinput/data.service';
 import { AuthService } from './auth/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +15,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,10 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
   ],
-  providers: [AuthService, DataService],
+  providers: [AuthService, DataService, ComplaintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

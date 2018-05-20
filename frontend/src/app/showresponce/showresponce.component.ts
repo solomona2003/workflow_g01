@@ -15,9 +15,9 @@ export class ShowresponceComponent implements OnInit, OnDestroy {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.sentDataStatus = this.dataService.requestSent.getValue(); //from the BehaviorSubject
-    this.killsentDataSubscription = this.dataService.requestSent.subscribe(sentStatus => {
-      
+    this.sentDataStatus = this.dataService.requestSentStatus.getValue(); // from the BehaviorSubject
+    this.killsentDataSubscription = this.dataService.requestSentStatus.subscribe(sentStatus => {
+
       this.sentDataStatus =  sentStatus;
     });
   }

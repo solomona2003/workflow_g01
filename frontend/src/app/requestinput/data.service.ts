@@ -9,7 +9,7 @@ import { StatusValue } from './data.enum';
 export class DataService {
 
     private requestDataHere: RequestData;
-    requestSent = new BehaviorSubject (StatusValue.denied);
+    requestSentStatus = new BehaviorSubject (StatusValue.denied);
 
     constructor (private router: Router) {}
 
@@ -28,14 +28,10 @@ export class DataService {
             ksv: requestData.ksv,
         };
 
-        console.log(this.requestDataHere);
-        this.requestSent.next(StatusValue.denied);
-    
+         this.requestSentStatus.next(StatusValue.denied);
          this.router.navigate(['/showresponce']);
     }
 
-    // check() {
 
-    // }
 }
 

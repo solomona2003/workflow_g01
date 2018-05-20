@@ -6,3 +6,7 @@ a:hover, a:active, a:focus, a:visited {
 button:focus {
     outline: 0;
 }
+
+.container {
+    width: 72%;
+}
