@@ -23,7 +23,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 
 
 import { environment } from '../environments/environment.prod';
-
+import { LocationStrategy, HashLocationStrategy} from '@angular/common'; // for firebase hosting
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { environment } from '../environments/environment.prod';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService, DataService, ComplaintService, UIService],
+  providers: [AuthService, DataService, ComplaintService, UIService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

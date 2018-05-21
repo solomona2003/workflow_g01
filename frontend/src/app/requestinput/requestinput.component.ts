@@ -19,24 +19,28 @@ export class RequestinputComponent implements OnInit {
 
   onSend(form: NgForm) {
     if (form.valid) {
-    this.formData = new FormData();
-    this.formData.append('ksv',
-                    this.avatar.nativeElement.files[0],
-                    // this.avatar.nativeElement.files[0].ksv
-                  );
+    // this.formData = new FormData();
+    // this.formData.append('ksv',
+    //                 this.avatar.nativeElement.files[0],
+    //                 // // this.avatar.nativeElement.files[0].ksv
+    //               );
 
     this.dataService.sendData({
       firstname: form.value.firstname,
       lastname: form.value.lastname,
       email: form.value.email,
-      address: form.value.address,
+      street: form.value.street,
       city: form.value.city,
       state: form.value.state,
       postcode: form.value.postcode,
       iban: form.value.iban,
       returnamount: form.value.returnamount,
-      income: form.value.income,
-      ksv: this.formData
+      incomeX: form.value.incomeX,
+      incomeY: form.value.incomeY,
+      incomeZ: form.value.incomeZ,
+      below18: form.value.below18,
+      // ksv: this.formData,
+
     });
 
       }

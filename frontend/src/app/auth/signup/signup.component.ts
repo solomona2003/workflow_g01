@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   killErrorMessageSubscription: Subscription;
   errorMessage = null;
 
-  private isLoading = false;
+  public isLoading = false;
   private killLoadingSubscription: Subscription;
   constructor(private authService: AuthService, private uIService: UIService) { }
 

@@ -14,7 +14,13 @@
   word-wrap: break-word;
   }
 
+  input.ng-invalid.ng-touched{
+    box-shadow: 1px 1px 9px 2px #ca4343;
+}
 
+select.ng-invalid.ng-touched{
+    box-shadow: 1px 1px 9px 2px #ca4343;
+}
   /* radio style */
 
 

@@ -2,12 +2,15 @@ export interface RequestData {
     firstname: string;
     lastname: string;
     email: string;
-    address: string;
+    street: string;
     city: string;
     state: string;
     postcode: number;
     iban: number;
     returnamount: number;
-    income: number;
-    ksv: string;
+    // ksv: string;
+    incomeX: number;
+    incomeY: number;
+    incomeZ: number;
+    below18: number;
 }

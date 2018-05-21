@@ -12,7 +12,7 @@ export class DataService {
     private requestDataHere: RequestData;
     requestSentStatus = new BehaviorSubject (StatusValue.denied);
 
-    availableResponse: AvailableResponse = {status: StatusValue.denied}
+    availableResponse: AvailableResponse = {status: StatusValue.denied};
 
     constructor (private router: Router) {}
 
@@ -21,14 +21,18 @@ export class DataService {
             firstname: requestData.firstname,
             lastname: requestData.lastname,
             email: requestData.email,
-            address: requestData.address,
+            street: requestData.street,
             city: requestData.city,
             state: requestData.state,
             postcode: requestData.postcode,
             iban: requestData.iban,
             returnamount: requestData.returnamount,
-            income: requestData.income,
-            ksv: requestData.ksv,
+            // ksv: requestData.ksv,
+            below18: requestData.below18,
+            incomeX: requestData.incomeX,
+            incomeY: requestData.incomeY,
+            incomeZ: requestData.incomeZ,
+
         };
 
          this.requestSentStatus.next(this.availableResponse.status);

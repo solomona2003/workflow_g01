@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService, private uIService: UIService) { }
   errorMessage = null;
-  private isLoading = false;
+  public isLoading = false;
   private killLoadingSubscription: Subscription;
   killErrorMessageSubscription: Subscription;
   isAuth: boolean;

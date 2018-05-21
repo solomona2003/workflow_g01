@@ -12,7 +12,8 @@
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-user"></i>
               </span>
-              <input name="firstname" placeholder="First Name" class="form-control" type="text" required>
+              <input name="firstname" placeholder="First Name" class="form-control" type="text" required ngModel #firstname="ngModel">
+              <span class="help-block" *ngIf="!firstname.valid && firstname.touched">Please enter a valid first name  </span>
             </div>
           </div>
         </div>
@@ -24,7 +25,8 @@
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-user"></i>
               </span>
-              <input name="lastname" placeholder="Last Name" class="form-control" type="text" required>
+              <input name="lastname" placeholder="Last Name" class="form-control" type="text" required ngModel #lastname="ngModel">
+              <span class="help-block" *ngIf="!lastname.valid && lastname.touched">Please enter a valid last name  </span>
             </div>
           </div>
         </div>
@@ -36,19 +38,21 @@
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-envelope"></i>
               </span>
-              <input name="email" placeholder="someone@abc.com" class="form-control" type="text" email required>
+              <input name="email" placeholder="someone@abc.com" class="form-control" type="text" email required ngModel #email="ngModel">
+              <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email </span>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-md-4 control-label">Address</label>
+          <label class="col-md-4 control-label">street</label>
           <div class="col-md-8 inputGroupContainer">
             <div class="input-group">
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-home"></i>
               </span>
-              <input name="street" placeholder="street" class="form-control" type="text" required>
+              <input name="street" placeholder="street" class="form-control" type="text" required ngModel #street="ngModel">
+              <span class="help-block" *ngIf="!street.valid && street.touched">Please enter a valid street </span>
             </div>
           </div>
         </div>
@@ -60,7 +64,8 @@
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-home"></i>
               </span>
-              <input name="city" placeholder="city" class="form-control" type="text" required>
+              <input name="city" placeholder="city" class="form-control" type="text" required ngModel #city="ngModel">
+              <span class="help-block" *ngIf="!city.valid && city.touched">Please enter a valid city </span>
             </div>
           </div>
         </div>
@@ -72,7 +77,7 @@
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-list"></i>
               </span>
-              <select name="state" class="form-control selectpicker" required>
+              <select name="state" class="form-control selectpicker" required ngModel #state="ngModel" >
                 <option value=" ">Please select your state</option>
                 <option>Burgenland</option>
                 <option>Vorarlberg</option>
@@ -84,6 +89,7 @@
                 <option>Lower Austria</option>
                 <option>Vienna</option>
               </select>
+              <span class="help-block" *ngIf="!state.valid && state.touched">Please select a state </span>
             </div>
           </div>
         </div>
@@ -95,11 +101,24 @@
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-home"></i>
               </span>
-              <input name="postcode" placeholder="1100" class="form-control" type="number" required maxlength="4">
+              <input name="postcode" placeholder="1100" class="form-control" type="number" required maxlength="4" min="0" ngModel #postcode="ngModel" >
+              <span class="help-block" *ngIf="!postcode.valid && postcode.touched">Please enter a valid post code </span>
             </div>
           </div>
         </div>
 
+        <div class="form-group">
+          <label class="col-md-4 control-label" style="    top: 7px;">Children Below 18</label>
+          <div class="col-md-8 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-heart"></i>
+              </span>
+              <input name="below18" placeholder="2" class="form-control" type="number" required maxlength="4" min="0" ngModel #below18="ngModel">
+              <span class="help-block" *ngIf="!below18.valid && below18.touched">Please enter a valid number of children </span>
+            </div>
+          </div>
+        </div>
 
       </div>
 
@@ -116,7 +135,8 @@
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-eur"></i>
               </span>
-              <input name="iban" placeholder="AT34 2011 1823 4213 4000" class="form-control" type="text" required minlength="20">
+              <input name="iban" placeholder="AT34 2011 1823 4213 4000" class="form-control" type="text" required minlength="20" min="0" ngModel #iban="ngModel">
+              <span class="help-block" *ngIf="!iban.valid && iban.touched">Please enter a valid 20 digit IBAN </span>
             </div>
           </div>
         </div>
@@ -128,28 +148,57 @@
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-eur"></i>
               </span>
-              <input name="requestamount" placeholder="200" class="form-control" type="number" required>
+              <input name="requestamount" placeholder="200" class="form-control" type="number" required min="0" ngModel #requestamount="ngModel">
+              <span class="help-block" *ngIf="!requestamount.valid && requestamount.touched">Please enter a valid Request Amount </span>
             </div>
           </div>
         </div>
 
 
         <div class="form-group">
-          <label class="col-md-4 control-label">Income</label>
+          <label class="col-md-4 control-label">Income X</label>
           <div class="col-md-8 inputGroupContainer">
             <div class="input-group">
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-eur"></i>
               </span>
-              <input name="income" placeholder="2000" class="form-control" type="number" required>
+              <input name="incomeX" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeX="ngModel">
+              <span class="help-block" *ngIf="!incomeX.valid && incomeX.touched">Please enter a valid incomeX </span>
             </div>
           </div>
         </div>
 
-        <span class="control-fileupload">
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Income Y</label>
+            <div class="col-md-8 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-eur"></i>
+                </span>
+                <input name="incomeY" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeY="ngModel">
+                <span class="help-block" *ngIf="!incomeY.valid && incomeY.touched">Please enter a valid incomeY </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" >
+              <label class="col-md-4 control-label">Income Z</label>
+              <div class="col-md-8 inputGroupContainer" style="padding-bottom: 21px"> 
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-eur"></i>
+                  </span>
+                  <input name="incomeZ" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeZ="ngModel">
+                  <span class="help-block" *ngIf="!incomeZ.valid && incomeZ.touched">Please enter a valid incomeZ </span>
+                </div>
+              </div>
+            </div>
+
+        <!-- <span class="control-fileupload">
           <label for="file1" class="text-left" style="padding-top: 20px;">Upload your kredit score sheet (eg. frm KSV)</label>
           <input type="file" id="file1" name="ksv" accept=".png, .jpg, .jpeg, .pdf" required #ksv>
-        </span>
+        </span> -->
 
 
         <div class="form-group" style="padding-top: 5%">
