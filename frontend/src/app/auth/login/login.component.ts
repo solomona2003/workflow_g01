@@ -1,8 +1,10 @@
-import { Subscription } from 'rxjs';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Subscription, Observable } from 'rxjs';
 import { UIService } from './../../shared/ui-features.service';
 import { NgForm } from '@angular/forms';
 import { AuthService } from './../auth.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
+  private user: Observable<firebase.User>;
 
-  constructor(private authService: AuthService, private uIService: UIService) { }
+  constructor(private authService: AuthService, private uIService: UIService, private afAuth: AngularFireAuth) {
+    this.user = afAuth.authState;
+  }
+
   errorMessage = null;
   public isLoading = false;
   private killLoadingSubscription: Subscription;
@@ -28,6 +34,17 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.errorMessage = Response;
     });
   }
+
+
+  signInWithGoogle() {
+    this.authService.googleLogin();
+  }
+
+  signInWithFacebook() {
+    this.authService.facebookLogin();
+  }
+
+
 
   ngOnDestroy() {
     this.killLoadingSubscription.unsubscribe();

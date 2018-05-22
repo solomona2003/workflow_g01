@@ -25,11 +25,22 @@
 
 
         <ng-template [ngIf]="isAuth">
-          <li><a style="cursor: pointer" [routerLink]="['login']" (click)="AuthService.logout()">
+          <li><a style="cursor: pointer" [routerLink]="['login']" (click)="authService.logout()">
           <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ng-template>
 
-
+        <ng-template [ngIf]="isAuth">
+          <li><a>
+          <span >{{authService.googleorfacebookAuthState.displayName}}</span></a> </li>
+        </ng-template>
+        
+        <ng-template [ngIf]="isAuth">
+          <li><a>
+          <img style="max-width: none;
+          width: 30px;
+          height: 30px;
+          margin-top: -10px;" src="{{authService.googleorfacebookAuthState.photoURL}}" alt=""></a> </li>
+        </ng-template>
 
         <!-- <ng-template [ngIf]= "authService.isAuthenticated()">
         <li class="dropdown" appDropdown >
