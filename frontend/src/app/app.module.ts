@@ -26,6 +26,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import { environment } from '../environments/environment.prod';
 import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { AdminComponent } from './admin/admin.component'; // for firebase hosting
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { AdminComponent } from './admin/admin.component'; // for firebase hostin
     SignupComponent,
     HeaderComponent,
     AdminComponent,
-    DropdownDirective
+    DropdownDirective,
+   
+
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { AdminComponent } from './admin/admin.component'; // for firebase hostin
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule,
   ],
   providers: [AuthService, DataService, ComplaintService, UIService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

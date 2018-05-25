@@ -9,7 +9,6 @@ import { StatusValue } from '../requestinput/data.enum';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { RESOURCE_CACHE_PROVIDER } from '@angular/platform-browser-dynamic';
-import {map} from 'rxjs/operators';
 
 @Injectable()
 export class ComplaintService {
@@ -23,7 +22,9 @@ export class ComplaintService {
         this.complaintDataHere = {
 
             text: complaintData.text,
-            userEmail: complaintData.userEmail
+            userEmail: complaintData.userEmail,
+            complaintStatus: "complained"
+
 
         };
         console.log('am in send data of complaint service' );

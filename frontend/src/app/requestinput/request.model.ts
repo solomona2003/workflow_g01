@@ -16,48 +16,29 @@ export interface RequestData {
 }
 
 
-// export class RequestData {
-//     firstname: string;
-//     lastname: string;
-//     email: string;
-//     street: string;
-//     city: string;
-//     state: string;
-//     postcode: number;
-//     iban: string;
-//     incomeAgriculture: number;
-//     incomeSelfEmployment: number;
-//     incomeCapitalAssets: number;
-//     incomelettingAndLeasing: number;
-//     below18: number;
+export interface CamundaData {
+    variables: Variables;
+    businessKey: string;
+}
 
-//     constructor (
-//         firstname: string,
-//         lastname: string,
-//         email: string,
-//         street: string,
-//         city: string,
-//         state: string,
-//         postcode: number,
-//         iban: string,
-//         incomeAgriculture: number,
-//         incomeSelfEmployment: number,
-//         incomeCapitalAssets: number,
-//         incomelettingAndLeasing: number,
-//         below18: number) {
-//             this.firstname = firstname,
-//             this.lastname = lastname,
-//             this.email = email,
-//             this.street = street,
-//             this.city = city,
-//             this.state = state,
-//             this.postcode = postcode,
-//             this.iban = iban,
-//             this.incomeAgriculture = incomeAgriculture,
-//             this.incomeCapitalAssets = incomeCapitalAssets,
-//             this.incomelettingAndLeasing = incomelettingAndLeasing,
-//             this.incomeSelfEmployment = incomeSelfEmployment,
-//             this.below18 = below18;
-//         }
-//         }
+export interface Variables {
+    firstName: TypeVal;
+    lastName: TypeVal;
+    emailAddress: TypeVal;
+    childrenCount: TypeVal;
+    city: TypeVal;
+    street: TypeVal;
+    state: TypeVal;
+    postCode: TypeVal;
+    iban: TypeVal;
+    incomeX: TypeVal;
+    incomeY: TypeVal;
+    incomeZ: TypeVal;
+    money: TypeVal; // TODO neeed to be deleted 
 
+}
+
+export interface TypeVal {
+    type: string;
+    value: string;
+}

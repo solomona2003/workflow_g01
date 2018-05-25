@@ -27,6 +27,7 @@ export class MakecomplaintComponent implements OnInit {
     this.complaintService.sendComplaint({
       text: form.value.text,
       userEmail: this.authService.googleorfacebookAuthState.email,
+      complaintStatus: "complained"
       });
 
   }
