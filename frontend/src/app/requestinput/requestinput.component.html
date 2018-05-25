@@ -140,56 +140,66 @@
           </div>
         </div>
 
+        
+
+
         <div class="form-group">
-          <label class="col-md-4 control-label">Request Amount</label>
+          <label class="col-md-4 control-label">Income Agriculture</label>
           <div class="col-md-8 inputGroupContainer">
             <div class="input-group">
               <span class="input-group-addon">
                 <i class="glyphicon glyphicon-eur"></i>
               </span>
-              <input name="requestamount" placeholder="200" class="form-control" type="number" required min="0" ngModel #requestamount="ngModel">
-              <span class="help-block" *ngIf="!requestamount.valid && requestamount.touched">Please enter a valid Request Amount </span>
+              <input name="incomeAgriculture" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeAgriculture="ngModel">
+              <span class="help-block" *ngIf="!incomeAgriculture.valid && incomeAgriculture.touched">Please enter a valid incomeX </span>
             </div>
           </div>
         </div>
 
-
-        <div class="form-group">
-          <label class="col-md-4 control-label">Income X</label>
-          <div class="col-md-8 inputGroupContainer">
-            <div class="input-group">
-              <span class="input-group-addon">
-                <i class="glyphicon glyphicon-eur"></i>
-              </span>
-              <input name="incomeX" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeX="ngModel">
-              <span class="help-block" *ngIf="!incomeX.valid && incomeX.touched">Please enter a valid incomeX </span>
-            </div>
-          </div>
-        </div>
+        
 
 
         <div class="form-group">
-            <label class="col-md-4 control-label">Income Y</label>
+            <label class="col-md-4 control-label">Income SelfEmployment</label>
             <div class="col-md-8 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon">
                   <i class="glyphicon glyphicon-eur"></i>
                 </span>
-                <input name="incomeY" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeY="ngModel">
-                <span class="help-block" *ngIf="!incomeY.valid && incomeY.touched">Please enter a valid incomeY </span>
+                <input name="incomeSelfEmployment" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeSelfEmployment="ngModel">
+                <span class="help-block" *ngIf="!incomeSelfEmployment.valid && incomeSelfEmployment.touched">Please enter a valid incomeY </span>
               </div>
             </div>
           </div>
 
+
+
+
+          
+
           <div class="form-group" >
-              <label class="col-md-4 control-label">Income Z</label>
+              <label class="col-md-4 control-label">Income CapitalAssets</label>
               <div class="col-md-8 inputGroupContainer" style="padding-bottom: 21px"> 
                 <div class="input-group">
                   <span class="input-group-addon">
                     <i class="glyphicon glyphicon-eur"></i>
                   </span>
-                  <input name="incomeZ" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeZ="ngModel">
-                  <span class="help-block" *ngIf="!incomeZ.valid && incomeZ.touched">Please enter a valid incomeZ </span>
+                  <input name="incomeCapitalAssets" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomeCapitalAssets="ngModel">
+                  <span class="help-block" *ngIf="!incomeCapitalAssets.valid && incomeCapitalAssets.touched">Please enter a valid incomeZ </span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group" >
+              <label class="col-md-4 control-label">Income lettingAndLeasing</label>
+              <div class="col-md-8 inputGroupContainer" style="padding-bottom: 21px"> 
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-eur"></i>
+                  </span>
+                  <input name="incomelettingAndLeasing" placeholder="2000" class="form-control" type="number" required min="0" ngModel #incomelettingAndLeasing="ngModel">
+                  <span class="help-block" *ngIf="!incomelettingAndLeasing.valid && incomelettingAndLeasing.touched">Please enter a valid incomeZ </span>
                 </div>
               </div>
             </div>

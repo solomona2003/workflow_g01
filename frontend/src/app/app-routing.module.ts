@@ -1,3 +1,4 @@
+import { AdminComponent } from './admin/admin.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CanActivate } from '@angular/router';
 import { MakecomplaintComponent } from './makecomplaint/makecomplaint.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'welcome', component: WelcomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
   {path: 'requestinput', component: RequestinputComponent, canActivate: [AuthGuard]},
   {path: 'showresponce', component: ShowresponceComponent, canActivate: [AuthGuard]},
   {path: 'makecomplaint', component: MakecomplaintComponent, canActivate: [AuthGuard]},

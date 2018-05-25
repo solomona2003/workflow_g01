@@ -8,9 +8,13 @@
       <ul class="nav navbar-nav">
         <ng-template  [ngIf]="isAuth" >
         <li [routerLinkActive]="['active']"><a [routerLink]="['/showresponce']"> Response </a> </li>
-      </ng-template> 
-        <!-- <li [routerLinkActive]="['active']"> <a [routerLink]="['/shopping-list']"> Shopping List </a> </li> -->
-      </ul>
+      </ng-template > 
+
+      <ng-template  [ngIf]="isAdminAuth" >
+        <li [routerLinkActive]="['active']"> <a [routerLink]="['/admin']"> Admin </a> </li>
+     
+    </ng-template > 
+  </ul>
       <ul class="nav navbar-nav navbar-right">
 
 

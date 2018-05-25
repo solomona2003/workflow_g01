@@ -4,15 +4,16 @@
   <form (ngSubmit)="onComplain(f)"  #f="ngForm">
     <div class="form-group">
       <!-- <label for="comment">Comment:</label> -->
-      <textarea class="form-control" rows="5" id="comment" name="complainttext"></textarea>
+      <textarea class="form-control" rows="5" id="comment" name="text" 
+      ngModel #text="ngModel"></textarea>
     </div>
 
 
-    
+<!--     
 <span class="control-fileupload">
   <label for="file1" class="text-left" style="padding-top: 20px;">Upload any further supporting document for your complaint </label>
   <input type="file" id="file1" name = "complaint" accept=".png, .jpg, .jpeg, .pdf" required #complaint>
-  </span>
+  </span> -->
   
   <div class="form-group" style="padding-top: 5%">
     <button id="add-user-btn"   class="btn btn-lg btn-primary btn-block new-post-button">Submit</button>

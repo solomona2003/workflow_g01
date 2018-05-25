@@ -1,4 +1,5 @@
 export interface ComplaintData {
-    complainttext: string;
-    file: string;
+    text: string;
+    userEmail: string;
 }
+

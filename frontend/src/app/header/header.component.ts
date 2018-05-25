@@ -9,16 +9,23 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuth = false;
+  isAdminAuth = false;
   killAuthSubscription: Subscription;
-  constructor(private authService: AuthService) { }
+  killAdminAuthSubscription: Subscription;
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
     this.killAuthSubscription = this.authService.authChange.subscribe(authStatus => {
       this.isAuth =  authStatus;
     });
+
+    this.killAdminAuthSubscription = this.authService.authAdminChange.subscribe(authAdminStatus => {
+      this.isAdminAuth =  authAdminStatus;
+    });
   }
 
   ngOnDestroy(): void {
     this.killAuthSubscription.unsubscribe();
+    this.killAdminAuthSubscription.unsubscribe();
   }
 }

@@ -14,8 +14,11 @@ import { GoogleAuthProvider_Instance } from '@firebase/auth-types';
 @Injectable()
 export class AuthService {
 authChange = new Subject <boolean>();
+authAdminChange = new Subject <boolean>();
 errorMessage = new Subject <string>();
 private isAuthenticated = false;
+private isAdminAuthenticated = false;
+
 
 googleorfacebookAuthState: any = null;
 
@@ -64,6 +67,7 @@ googleLogin() {
 
       this.afAuth.auth.createUserWithEmailAndPassword(authData.email, authData.password).then(
           result => {
+              this.googleorfacebookAuthState = result.user;
             this.uIService.loadingStateChanged.next(false);
 
               this.authSuccesfully();
@@ -75,13 +79,16 @@ googleLogin() {
       });
     }
 
-
+// email and pass login
     login (authData: AuthData) {
         this.uIService.loadingStateChanged.next(true);
       this.afAuth.auth.signInWithEmailAndPassword(authData.email, authData.password).then(
             result => {
                 this.uIService.loadingStateChanged.next(false);
                 this.authSuccesfully();
+                if (authData.email === '123@yahoo.com') {
+                this.authAdminChange.next(true);
+                }
             }
         ).catch(error => {
             this.errorMessage.next(error);
@@ -91,9 +98,10 @@ googleLogin() {
         });
     }
 
-
+// email and pass logout
     logout() {
         this.authChange.next(false);
+        this.authAdminChange.next(false);
         this.isAuthenticated = false;
         this.afAuth.auth.signOut();
         this.router.navigate(['/welcome']);

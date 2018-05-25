@@ -1,3 +1,4 @@
+import { DropdownDirective } from './admin/dropdown.directive';
 import { UIService } from './shared/ui-features.service';
 import { ComplaintService } from './makecomplaint/complaint.service';
 import { DataService } from './requestinput/data.service';
@@ -23,7 +24,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 
 
 import { environment } from '../environments/environment.prod';
-import { LocationStrategy, HashLocationStrategy} from '@angular/common'; // for firebase hosting
+import { LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { AdminComponent } from './admin/admin.component'; // for firebase hosting
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { LocationStrategy, HashLocationStrategy} from '@angular/common'; // for 
     AuthComponent,
     LoginComponent,
     SignupComponent,
-    HeaderComponent
+    HeaderComponent,
+    AdminComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,

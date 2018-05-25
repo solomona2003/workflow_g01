@@ -34,11 +34,12 @@ export class RequestinputComponent implements OnInit {
       state: form.value.state,
       postcode: form.value.postcode,
       iban: form.value.iban,
-      returnamount: form.value.returnamount,
-      incomeX: form.value.incomeX,
-      incomeY: form.value.incomeY,
-      incomeZ: form.value.incomeZ,
+      incomeAgriculture: form.value.incomeAgriculture,
+      incomeSelfEmployment: form.value.incomeSelfEmployment,
+      incomeCapitalAssets: form.value.incomeCapitalAssets,
+      incomelettingAndLeasing: form.value.incomelettingAndLeasing,
       below18: form.value.below18,
+      status: 'waiting',
       // ksv: this.formData,
 
     });

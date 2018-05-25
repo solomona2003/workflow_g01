@@ -1,3 +1,5 @@
+import { AuthService } from './../auth/auth.service';
+import { ComplaintData } from './complain.model';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ComplaintService } from './complaint.service';
@@ -10,21 +12,22 @@ import { ComplaintService } from './complaint.service';
 export class MakecomplaintComponent implements OnInit {
   @ViewChild('complaint') avatar: ElementRef;
   formData: any;
-  constructor(private complaintService: ComplaintService) { }
+  constructor(private complaintService: ComplaintService, private authService: AuthService) { }
 
   ngOnInit() {
   }
 
 
   onComplain(form: NgForm) {
-    this.formData = new FormData();
-    this.formData.append('complaint',
-                    this.avatar.nativeElement.files[0],
-                  );
+    // this.formData = new FormData();
+    // this.formData.append('complaint',
+    //                 this.avatar.nativeElement.files[0],
+    //               );
 
     this.complaintService.sendComplaint({
-      complainttext: form.value.complainttext,
-      file: this.formData });
+      text: form.value.text,
+      userEmail: this.authService.googleorfacebookAuthState.email,
+      });
 
   }
 }

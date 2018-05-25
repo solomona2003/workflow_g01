@@ -1,0 +1,39 @@
+<div class="list-group" *ngIf=" false" >
+  <div class="list-group">
+
+    <div class="list-group-item" >
+        No complaints
+    </div>
+  </div>
+  </div>
+<ul class="list-group" *ngFor="let post of posts | async">
+
+  <li class="list-group-item">
+   
+    <p style="font-weight: 600">User: <span style="font-weight: 100">{{post.userEmail}} </span> </p>
+    <p> {{post.text}} </p>
+ 
+
+    <div class="btn-group" appDropdown>
+      <button type="butten" class="btn btn-primary dropdown-toggle">
+        Manage Complaint
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li (click)="onAccept()">
+          <a style="cursor: pointer">
+            <span class="glyphicon glyphicon-plus" style="margin-right: 10px"></span> Accept</a>
+        </li>
+        <li (click)="onDeny()">
+          <a style="cursor: pointer">
+            <span style="margin-right: 10px" class="glyphicon glyphicon-remove"></span> Deny</a>
+        </li>
+      </ul>
+    </div>
+
+
+
+ 
+</ul>
+
+<div class="loader" *ngIf="isLoading" ></div>
