@@ -1,4 +1,6 @@
-<form (ngSubmit)="onSend(f)" #f="ngForm">
+
+<div *ngIf="!isLoading">
+<form (ngSubmit)="onSend(f)" #f="ngForm" *ngIf='!alreadySent'>
   <div class="container">
 
     <div class="row">
@@ -220,3 +222,13 @@
   </div>
 
 </form>
+
+<div *ngIf="alreadySent">
+{{message}}
+</div>
+
+
+
+</div>
+
+<div class="loader" *ngIf="isLoading" ></div>

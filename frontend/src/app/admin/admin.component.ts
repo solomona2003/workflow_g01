@@ -1,8 +1,9 @@
+import { AuthService } from './../auth/auth.service';
 import { UIService } from './../shared/ui-features.service';
 import { ComplaintData } from './../makecomplaint/complain.model';
 import { Observable, Subscription } from 'rxjs';
 import { ComplaintService } from './../makecomplaint/complaint.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
@@ -10,15 +11,19 @@ import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/fires
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
   postsCol: AngularFirestoreCollection<ComplaintData>;
   posts: Observable<ComplaintData[]>;
+
   killLoadingSubscription: Subscription;
   public isLoading = false;
 
   constructor(private complaintService: ComplaintService,
-     private db: AngularFirestore, private uIService: UIService) { }
+     private db: AngularFirestore, private uIService: UIService, 
+    private authService: AuthService) { }
   hereResponse: any[];
+  thetext: string;
+  thestatus: string;
   ngOnInit() {
 
     this.killLoadingSubscription = this.uIService.loadingStateChanged.subscribe(loading => {
@@ -37,15 +42,33 @@ this.postsCol = this.db.collection('complaint');
 
 this.posts = this.postsCol.valueChanges();
 
+ this.posts.subscribe(r => {
+  this.thetext = r.pop().text;
+  this.thestatus = r.pop().status;
+});
 
 console.log(this.postsCol.valueChanges.length);
 
 
   }
 
-  onAccept() {}
+  ngOnDestroy() {
+    this.killLoadingSubscription.unsubscribe();
+  }
 
-  onDeny() {}
+  // this.postsCol1 = this.db.collection('complaint', ref => ref.where('email', '==', this.authService.googleorfacebookAuthState.email));
+
+
+  // this.db.collection('inputData').add(this.requestDataHere);
+
+  onAccept(emailhere: string) {
+
+    this.db.collection("complaint").doc(emailhere).set({email: emailhere, status: 'complained-accepted', text: this.thetext });
+  }
+
+  onDeny(emailhere) {
+    this.db.collection("complaint").doc(emailhere).set({email: emailhere, status: 'complained-denied', text: this.thetext });
+  }
 
 
 

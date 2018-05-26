@@ -1,26 +1,46 @@
 
 <div class="welcome">
 
-<ng-template [ngIf]= "sentDataStatus === 2">
+<ng-template [ngIf]= "complaintisempty === false && inputdataisempty === false &&  complaintStatus==='complained'">
     <p style="font-size: 38px; padding: 15px">
      Your request is being processed, please visit this page after a short while
     </p>
   </ng-template>
     
 
-  <ng-template [ngIf] = "sentDataStatus === 1">
+  <ng-template [ngIf] = "inputdataisempty === false &&   sentDataStatus === 1 && complaintStatus!='complained' && complaintStatus !='complained-accepted'">
       <p style="font-size: 38px; padding: 15px">
        Congratulations your request has been approved. Your refund is processed. Bank transfers can take up to two working days. 
       </p>
     </ng-template>
 
+    <ng-template [ngIf] = "complaintisempty === false && inputdataisempty === false &&   complaintStatus ==='complained-accepted'">
+        <p style="font-size: 38px; padding: 15px">
+         Congratulations your COMPLAINT has been approved. Your refund is processed. Bank transfers can take up to two working days. 
+        </p>
+      </ng-template>
 
-    
-  <ng-template [ngIf] = "sentDataStatus === 0">
+      <ng-template [ngIf] = "complaintisempty === true && inputdataisempty === true ">
+          <p style="font-size: 38px; padding: 15px">
+           You Need to fill in first <a class="styeled btn btn-default" [routerLink]="['/requestinput']">Request Input</a> 
+          </p>
+        </ng-template>
+
+      <ng-template [ngIf] = " complaintisempty === false && inputdataisempty === false && complaintStatus ==='complained-denied'">
+          <p style="font-size: 38px; padding: 15px">
+           Your COMPLAINT has been DENIED. You can come to the office to talk to a clerk. online request for you wil be availabe after 1 months. 
+          </p>
+        </ng-template>
+     
+  <ng-template [ngIf] = "complaintisempty === true && inputdataisempty === false &&  sentDataStatus === 0 && complaintStatus!='complained' && complaintStatus !='complained-accepted'   && complaintStatus !='complained-denied'">
       <p style="font-size: 38px; padding: 15px">
        Your request has been denied. You can provide a complaint <a class="styeled btn btn-default" [routerLink]="['/makecomplaint']">Complain</a> 
       </p>
     </ng-template>
+
+    <div *ngFor="let post of posts | async">
+     <!-- {{post.status}} -->
+    </div>
       
     </div>
 

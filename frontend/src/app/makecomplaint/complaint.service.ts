@@ -22,14 +22,16 @@ export class ComplaintService {
         this.complaintDataHere = {
 
             text: complaintData.text,
-            userEmail: complaintData.userEmail,
-            complaintStatus: "complained"
+            email: complaintData.email,
+            status: "complained"
 
 
         };
         console.log('am in send data of complaint service' );
 
-        this.db.collection('complaint').add(this.complaintDataHere);
+        this.db.collection("complaint").doc(this.complaintDataHere.email).set(this.complaintDataHere);
+
+        // this.db.collection('complaint').add(this.complaintDataHere);
 
         this.dataService.requestSentStatus.next(StatusValue.waiting);
         this.router.navigate(['/showresponce']);

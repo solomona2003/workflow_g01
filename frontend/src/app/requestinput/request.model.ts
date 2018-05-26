@@ -12,8 +12,12 @@ export interface RequestData {
     incomeCapitalAssets: number;
     incomelettingAndLeasing: number;
     below18: number;
-    status: string;
+    status: number;
 }
+
+interface RequestDataID extends RequestData {
+    id: string;
+  }
 
 
 export interface CamundaData {

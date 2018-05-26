@@ -84,6 +84,7 @@ googleLogin() {
         this.uIService.loadingStateChanged.next(true);
       this.afAuth.auth.signInWithEmailAndPassword(authData.email, authData.password).then(
             result => {
+                this.googleorfacebookAuthState = result.user;
                 this.uIService.loadingStateChanged.next(false);
                 this.authSuccesfully();
                 if (authData.email === '123@yahoo.com') {
@@ -104,6 +105,7 @@ googleLogin() {
         this.authAdminChange.next(false);
         this.isAuthenticated = false;
         this.afAuth.auth.signOut();
+        this.googleorfacebookAuthState = null;
         this.router.navigate(['/welcome']);
 
     }

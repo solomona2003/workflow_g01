@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { map } from 'rxjs/operators';
 import { AvailableResponse } from './response.model';
 import { Router, Route } from '@angular/router';
@@ -24,7 +25,7 @@ export class DataService implements OnInit {
     availableResponse: AvailableResponse = {status: StatusValue.denied};
 
     constructor (private router: Router, private db: AngularFirestore,
-        private http: HttpClient) {}
+        private http: HttpClient , private authService: AuthService) {}
 
         configUrl = 'http://35.158.119.79:8080/engine-rest/process-definition/key/approve-form/start';
 
@@ -33,14 +34,16 @@ export class DataService implements OnInit {
     }
 
    // tslint:disable-next-line:prefer-const
+ // tslint:disable-next-line:member-ordering
  
 
     sendData (requestData: RequestData) {
+        const randomSatus = Math.floor((Math.random() * 2));
              this.requestDataHere = {
 
             firstname: requestData.firstname,
             lastname: requestData.lastname,
-            email: requestData.email,
+            email: this.authService.googleorfacebookAuthState.email,
             street: requestData.street,
             city: requestData.city,
             state: requestData.state,
@@ -51,12 +54,12 @@ export class DataService implements OnInit {
             incomeCapitalAssets: requestData.incomeCapitalAssets,
             incomelettingAndLeasing: requestData.incomelettingAndLeasing,
             below18: requestData.below18,
-            status: 'waiting',
+            status: randomSatus,
 
         };
-
-
-        this.db.collection('inputData').add(this.requestDataHere);
+        
+        this.db.collection("inputData").doc(this.requestDataHere.email).set(this.requestDataHere);
+        // this.db.collection('inputData').add(this.requestDataHere);
 
 
         // http://35.158.119.79:8080/engine-rest/process-definition/key/approve-form/start
