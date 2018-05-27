@@ -18,6 +18,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   complaintisempty = false;
   killLoadingSubscription: Subscription;
   public isLoading = false;
+  count=0;
 
   constructor(private complaintService: ComplaintService,
      private db: AngularFirestore, private uIService: UIService, 
@@ -33,13 +34,16 @@ export class AdminComponent implements OnInit, OnDestroy {
 
 
 
-      this.postsCol = this.db.collection('complaint');
-      // Create a query against the collection.
-      this.posts = this.postsCol.valueChanges();
-      this.posts.subscribe(r => {
-        if (r.length !== 0) { r.forEach(item => {if (item.status !== 'complained')
-        { this.complaintisempty = true; }} ); } else { this.complaintisempty = true; }
-      });
+      // this.postsCol = this.db.collection('complaint');
+      // // Create a query against the collection.
+      // this.posts = this.postsCol.valueChanges();
+      // this.posts.subscribe(r => {
+      //   if (r.length !== 0)
+      //    { r.forEach(item => {
+      //      if (item.status === 'complained-accepted' || item.status === 'complained-denied' )
+      //      { this.count++; }} ); if (this.count === r.length) {this.complaintisempty = true; }} 
+      //      else { this.complaintisempty = true; }
+      // });
 
 
     });
