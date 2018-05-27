@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   postsCol: AngularFirestoreCollection<ComplaintData>;
   posts: Observable<ComplaintData[]>;
 
+  complaintisempty = false;
   killLoadingSubscription: Subscription;
   public isLoading = false;
 
@@ -28,6 +29,19 @@ export class AdminComponent implements OnInit, OnDestroy {
 
     this.killLoadingSubscription = this.uIService.loadingStateChanged.subscribe(loading => {
       this.isLoading = loading;
+
+
+
+
+      this.postsCol = this.db.collection('complaint');
+      // Create a query against the collection.
+      this.posts = this.postsCol.valueChanges();
+      this.posts.subscribe(r => {
+        if (r.length !== 0) { r.forEach(item => {if (item.status !== 'complained')
+        { this.complaintisempty = true; }} ); } else { this.complaintisempty = true; }
+      });
+
+
     });
 //   this.hereResponse =  this.complaintService.readComplaint();
 
@@ -69,6 +83,9 @@ console.log(this.postsCol.valueChanges.length);
   onDeny(emailhere) {
     this.db.collection("complaint").doc(emailhere).set({email: emailhere, status: 'complained-denied', text: this.thetext });
   }
+
+
+
 
 
 

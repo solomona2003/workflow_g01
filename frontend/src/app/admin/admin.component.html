@@ -1,4 +1,4 @@
-<div class="list-group" *ngIf=" false" >
+<div class="list-group" *ngIf=" complaintisempty" >
   <div class="list-group">
 
     <div class="list-group-item" > 
@@ -6,6 +6,7 @@
     </div>
   </div>
   </div>
+  
 <ul class="list-group" *ngFor="let post of posts | async">
 
   <li class="list-group-item" *ngIf="post.status === 'complained' ">
