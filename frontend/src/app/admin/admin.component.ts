@@ -52,8 +52,6 @@ export class AdminComponent implements OnInit, OnDestroy {
 // console.log('in admin' + this.complaintService.adminReadabale.text);
 this.uIService.loadingStateChanged.next(true);
 this.db.collection('complaint').snapshotChanges().subscribe(r => {
-
-  
   this.uIService.loadingStateChanged.next(false);
 });
 this.postsCol = this.db.collection('complaint');
