@@ -1,6 +1,6 @@
 # workflow_g01
 
-after you cone it
+after you clone it,
 go into the project folder then frontend
 then ng serve
 
