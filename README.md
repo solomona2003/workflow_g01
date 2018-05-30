@@ -2,7 +2,7 @@
 
 after you clone it,
 go into the project folder then frontend
-then ng serve
+then in console type ng serve
 
 open localhost: 4200 
 
